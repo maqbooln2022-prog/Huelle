@@ -6,7 +6,6 @@ const columns = [
     links: [
       { label: "Phone Cases", href: "/cases" },
       { label: "Form Case", href: "/cases/form-case" },
-      { label: "Duo Case", href: "/cases/duo-case" },
       { label: "Air Case", href: "/cases/air-case" },
     ],
   },

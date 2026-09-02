@@ -26,7 +26,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: "Hülle — Your style. Your case.",
   description:
-    "Minimalist, precision-crafted iPhone cases in three lines — Form, Duo, and Air. 100-day returns, 1-year warranty.",
+    "Minimalist, precision-crafted iPhone cases in two lines — Form and Air. 100-day returns, 1-year warranty.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
