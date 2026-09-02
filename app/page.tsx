@@ -1,12 +1,21 @@
 import { Hero } from "@/components/hero";
-import { BestSellers } from "@/components/best-sellers";
+import { ProductLineSection } from "@/components/product-line-section";
+import { PromoBanner } from "@/components/promo-banner";
+import { BrandStory } from "@/components/brand-story";
 import { CustomizerBanner } from "@/components/customizer-banner";
+import { caseLines } from "@/lib/products";
 
 export default function Home() {
+  const [formCase, airCase, clearCase] = caseLines;
+
   return (
     <>
       <Hero />
-      <BestSellers />
+      <ProductLineSection line={formCase} />
+      <PromoBanner />
+      <ProductLineSection line={clearCase} />
+      <BrandStory />
+      <ProductLineSection line={airCase} />
       <CustomizerBanner />
     </>
   );
