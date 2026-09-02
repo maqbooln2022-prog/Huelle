@@ -29,31 +29,66 @@ const infoItems = [
   },
 ];
 
+const angleLabels = ["Back view", "Camera detail", "Logo detail"];
+
 export function ProductDetail({ line }: { line: CaseLine }) {
   const [selectedColor, setSelectedColor] = useState(line.colors[0]);
   const [selectedDevice, setSelectedDevice] = useState(line.devices[0]);
+  const [activeImage, setActiveImage] = useState(0);
   const { addItem } = useCart();
+
+  const gallery =
+    selectedColor.images ?? [selectedColor.image ?? line.image];
+  const mainSrc = gallery[Math.min(activeImage, gallery.length - 1)];
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-16">
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#F0EFEA]"
-        >
-          <ProductBadges badges={line.badges} className="absolute left-5 top-5 z-10" />
-          <Image
-            key={selectedColor.name}
-            src={selectedColor.image ?? line.image}
-            alt={`${line.name} in ${selectedColor.name}`}
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            priority
-            className="object-cover object-top"
-          />
-        </motion.div>
+        <div>
+          <motion.div
+            key={mainSrc}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#F0EFEA]"
+          >
+            <ProductBadges badges={line.badges} className="absolute left-5 top-5 z-10" />
+            <Image
+              src={mainSrc}
+              alt={`${line.name} in ${selectedColor.name} — ${angleLabels[Math.min(activeImage, gallery.length - 1)]}`}
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              priority
+              className="object-cover object-top"
+            />
+          </motion.div>
+
+          {gallery.length > 1 && (
+            <div className="mt-4 flex gap-3">
+              {gallery.map((src, i) => (
+                <button
+                  key={src}
+                  type="button"
+                  onClick={() => setActiveImage(i)}
+                  aria-label={angleLabels[i] ?? `View ${i + 1}`}
+                  className={`relative aspect-square w-20 overflow-hidden rounded-lg bg-[#F0EFEA] transition-all cursor-pointer ${
+                    i === Math.min(activeImage, gallery.length - 1)
+                      ? "ring-2 ring-foreground ring-offset-2 ring-offset-background"
+                      : "opacity-70 hover:opacity-100"
+                  }`}
+                >
+                  <Image
+                    src={src}
+                    alt=""
+                    fill
+                    sizes="80px"
+                    className="object-cover object-top"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
 
         <div>
           <h1 className="font-display text-4xl font-medium tracking-tight sm:text-5xl">
@@ -67,7 +102,10 @@ export function ProductDetail({ line }: { line: CaseLine }) {
             <ColorSwatches
               colors={line.colors}
               selected={selectedColor}
-              onSelect={setSelectedColor}
+              onSelect={(color) => {
+                setSelectedColor(color);
+                setActiveImage(0);
+              }}
             />
           </div>
 

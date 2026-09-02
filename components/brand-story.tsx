@@ -17,7 +17,7 @@ export function BrandStory() {
         >
           <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
             <Image
-              src="/images/cases/air/air-sage.webp"
+              src="/images/cases/air/air-sage-back.webp"
               alt="Air Case in sage woven aramid on a studio backdrop"
               fill
               sizes="(min-width: 1024px) 45vw, 90vw"

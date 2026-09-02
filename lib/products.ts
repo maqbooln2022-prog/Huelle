@@ -4,6 +4,7 @@ export type ColorOption = {
   name: string;
   hex: string;
   image?: string;
+  images?: string[];
 };
 
 export type CaseLine = {
@@ -34,33 +35,68 @@ export const caseLines: CaseLine[] = [
     name: "Form Case",
     tagline: "Structured protection, signature silhouette",
     price: 1650,
-    image: "/images/cases/form/form-black.webp",
+    image: "/images/cases/form/form-black-back.webp",
     badges: ["new", "magsafe"],
     colors: [
       {
         name: "Midnight Black",
         hex: "#2E2E2D",
-        image: "/images/cases/form/form-black.webp",
+        image: "/images/cases/form/form-black-back.webp",
+        images: [
+          "/images/cases/form/form-black-back.webp",
+          "/images/cases/form/form-black-camera.webp",
+          "/images/cases/form/form-black-deboss.webp",
+        ],
       },
       {
         name: "Ink Navy",
         hex: "#2E3F70",
-        image: "/images/cases/form/form-navy.webp",
+        image: "/images/cases/form/form-navy-back.webp",
+        images: [
+          "/images/cases/form/form-navy-back.webp",
+          "/images/cases/form/form-navy-camera.webp",
+          "/images/cases/form/form-navy-deboss.webp",
+        ],
       },
       {
-        name: "Forest Green",
+        name: "Moss Green",
         hex: "#3E7C55",
-        image: "/images/cases/form/form-green.webp",
+        image: "/images/cases/form/form-moss-back.webp",
+        images: [
+          "/images/cases/form/form-moss-back.webp",
+          "/images/cases/form/form-moss-camera.webp",
+          "/images/cases/form/form-moss-deboss.webp",
+        ],
+      },
+      {
+        name: "Terracotta",
+        hex: "#E8912D",
+        image: "/images/cases/form/form-terracotta-back.webp",
+        images: [
+          "/images/cases/form/form-terracotta-back.webp",
+          "/images/cases/form/form-terracotta-camera.webp",
+          "/images/cases/form/form-terracotta-deboss.webp",
+        ],
       },
       {
         name: "Rose Pink",
         hex: "#EE8FA6",
-        image: "/images/cases/form/form-pink.webp",
+        image: "/images/cases/form/form-rose-back.webp",
+        images: [
+          "/images/cases/form/form-rose-back.webp",
+          "/images/cases/form/form-rose-camera.webp",
+          "/images/cases/form/form-rose-deboss.webp",
+        ],
       },
       {
-        name: "Tan Brown",
+        name: "Walnut Brown",
         hex: "#9A6440",
-        image: "/images/cases/form/form-brown.webp",
+        image: "/images/cases/form/form-walnut-back.webp",
+        images: [
+          "/images/cases/form/form-walnut-back.webp",
+          "/images/cases/form/form-walnut-camera.webp",
+          "/images/cases/form/form-walnut-deboss.webp",
+        ],
       },
     ],
     devices,
@@ -86,23 +122,38 @@ export const caseLines: CaseLine[] = [
     name: "Air Case",
     tagline: "Barely there, fully covered",
     price: 999,
-    image: "/images/cases/air/air-graphite.webp",
+    image: "/images/cases/air/air-graphite-back.webp",
     badges: ["magsafe"],
     colors: [
       {
         name: "Graphite",
         hex: "#474745",
-        image: "/images/cases/air/air-graphite.webp",
+        image: "/images/cases/air/air-graphite-back.webp",
+        images: [
+          "/images/cases/air/air-graphite-back.webp",
+          "/images/cases/air/air-graphite-camera.webp",
+          "/images/cases/air/air-graphite-deboss.webp",
+        ],
       },
       {
         name: "Ink Navy",
         hex: "#3D4C77",
-        image: "/images/cases/air/air-navy.webp",
+        image: "/images/cases/air/air-navy-back.webp",
+        images: [
+          "/images/cases/air/air-navy-back.webp",
+          "/images/cases/air/air-navy-camera.webp",
+          "/images/cases/air/air-navy-deboss.webp",
+        ],
       },
       {
         name: "Sage Green",
         hex: "#97B291",
-        image: "/images/cases/air/air-sage.webp",
+        image: "/images/cases/air/air-sage-back.webp",
+        images: [
+          "/images/cases/air/air-sage-back.webp",
+          "/images/cases/air/air-sage-camera.webp",
+          "/images/cases/air/air-sage-deboss.webp",
+        ],
       },
       {
         name: "Rose Clay",
@@ -112,7 +163,12 @@ export const caseLines: CaseLine[] = [
       {
         name: "Taupe",
         hex: "#AB9D84",
-        image: "/images/cases/air/air-taupe.webp",
+        image: "/images/cases/air/air-taupe-back.webp",
+        images: [
+          "/images/cases/air/air-taupe-back.webp",
+          "/images/cases/air/air-taupe-camera.webp",
+          "/images/cases/air/air-taupe-deboss.webp",
+        ],
       },
     ],
     devices,
