@@ -42,16 +42,17 @@ export function ProductDetail({ line }: { line: CaseLine }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="relative aspect-square overflow-hidden rounded-2xl bg-[#F0EFEA]"
+          className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#F0EFEA]"
         >
           <ProductBadges badges={line.badges} className="absolute left-5 top-5 z-10" />
           <Image
-            src={line.image}
+            key={selectedColor.name}
+            src={selectedColor.image ?? line.image}
             alt={`${line.name} in ${selectedColor.name}`}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             priority
-            className="object-cover"
+            className="object-cover object-top"
           />
         </motion.div>
 
@@ -99,7 +100,7 @@ export function ProductDetail({ line }: { line: CaseLine }) {
                 shade: selectedColor.name,
                 swatch: selectedColor.hex,
                 slug: line.slug,
-                image: line.image,
+                image: selectedColor.image ?? line.image,
                 badges: line.badges,
               })
             }

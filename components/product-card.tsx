@@ -32,7 +32,7 @@ export function ProductCard({ product }: { product: Product }) {
           alt={`${product.name} in ${product.shade}`}
           fill
           sizes="(min-width: 1024px) 25vw, 45vw"
-          className="pointer-events-none object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          className="pointer-events-none object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
         />
 
         <button

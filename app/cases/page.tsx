@@ -18,7 +18,7 @@ export default function CasesPage() {
       shade: color.name,
       swatch: color.hex,
       slug: line.slug,
-      image: line.image,
+      image: color.image ?? line.image,
       badges: line.badges,
     }))
   );

@@ -3,6 +3,7 @@ export type Badge = "new" | "limited" | "magsafe";
 export type ColorOption = {
   name: string;
   hex: string;
+  image?: string;
 };
 
 export type CaseLine = {
@@ -35,15 +36,34 @@ export const caseLines: CaseLine[] = [
     name: "Form Case",
     tagline: "Structured protection, signature silhouette",
     price: 1650,
-    image: "/images/cases/form-case.jpg",
+    image: "/images/cases/form/form-black.webp",
     badges: ["new", "magsafe"],
     colors: [
-      { name: "Stone Grey", hex: "#8C8A83" },
-      { name: "Sand Beige", hex: "#D8CBB4" },
-      { name: "Midnight Black", hex: "#1B1B1B" },
-      { name: "Sage Green", hex: "#79826F" },
-      { name: "Dusk Mauve", hex: "#B08C86" },
-      { name: "Fog Blue", hex: "#7C8A96" },
+      {
+        name: "Dusk Mauve",
+        hex: "#BB8E8B",
+        image: "/images/cases/form/form-mauve.webp",
+      },
+      {
+        name: "Midnight Black",
+        hex: "#3C3C3A",
+        image: "/images/cases/form/form-black.webp",
+      },
+      {
+        name: "Sage Green",
+        hex: "#93A489",
+        image: "/images/cases/form/form-sage.webp",
+      },
+      {
+        name: "Sand Beige",
+        hex: "#BFB09C",
+        image: "/images/cases/form/form-beige.webp",
+      },
+      {
+        name: "Ink Navy",
+        hex: "#3A4A66",
+        image: "/images/cases/form/form-navy.webp",
+      },
     ],
     devices,
     rating: 4.8,
@@ -174,7 +194,7 @@ export const bestSellers: Product[] = caseLines.flatMap((line) =>
     shade: color.name,
     swatch: color.hex,
     slug: line.slug,
-    image: line.image,
+    image: color.image ?? line.image,
     badges: line.badges,
   }))
 );

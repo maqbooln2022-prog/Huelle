@@ -37,7 +37,7 @@ export function ProductLineSection({ line }: { line: CaseLine }) {
                   shade: color.name,
                   swatch: color.hex,
                   slug: line.slug,
-                  image: line.image,
+                  image: color.image ?? line.image,
                   badges: line.badges,
                 }}
               />

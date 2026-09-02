@@ -66,7 +66,7 @@ export function CartDrawer() {
                               alt={`${line.name} in ${line.shade}`}
                               fill
                               sizes="80px"
-                              className="object-cover"
+                              className="object-cover object-top"
                             />
                           </div>
                           <div className="flex flex-1 flex-col justify-center">
