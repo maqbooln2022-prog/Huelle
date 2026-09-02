@@ -118,6 +118,43 @@ export const caseLines: CaseLine[] = [
     ],
   },
   {
+    slug: "duo-case",
+    name: "Duo Case",
+    tagline: "Two tones, one silhouette",
+    price: 1299,
+    image: "/images/cases/duo/duo-olive.webp",
+    badges: ["new", "magsafe"],
+    colors: [
+      {
+        name: "Olive & Orange",
+        hex: "#4E5540",
+        image: "/images/cases/duo/duo-olive.webp",
+      },
+      {
+        name: "Navy & Coral",
+        hex: "#33415A",
+        image: "/images/cases/duo/duo-navy.webp",
+      },
+    ],
+    devices,
+    description:
+      "A soft-touch shell with a contrast camera plate that frames your lenses in colour. The same raised-lip protection as the rest of the lineup, in pairings that don't take themselves too seriously.",
+    highlights: [
+      {
+        title: "Contrast camera plate",
+        body: "A second colour frames the camera — the detail you notice from across the table.",
+      },
+      {
+        title: "Soft-touch finish",
+        body: "A matte coating that feels warm in the hand and resists fingerprints.",
+      },
+      {
+        title: "Raised protective lip",
+        body: "Screen and lenses stay clear of every surface you set it on.",
+      },
+    ],
+  },
+  {
     slug: "air-case",
     name: "Air Case",
     tagline: "Barely there, fully covered",
