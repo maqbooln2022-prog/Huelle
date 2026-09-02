@@ -246,35 +246,6 @@ export const caseLines: CaseLine[] = [
       },
     ],
   },
-  {
-    slug: "clear-case",
-    name: "Clear Case",
-    tagline: "Let the original design speak",
-    price: 599,
-    image: "/images/cases/clear-case.jpg",
-    badges: ["magsafe"],
-    colors: [
-      { name: "Crystal Clear", hex: "#F4F3EF" },
-      { name: "Smoke Tint", hex: "#B9B6AE" },
-    ],
-    devices,
-    description:
-      "A transparent shell built with an anti-yellowing polymer, so it looks as clean on day 500 as it did on day one. Shows off your phone's original color while adding real drop protection.",
-    highlights: [
-      {
-        title: "Anti-yellowing formula",
-        body: "UV-stable polymer resists discoloration over time.",
-      },
-      {
-        title: "Scratch-resistant back",
-        body: "Hard-coated panel keeps the clear finish clear.",
-      },
-      {
-        title: "Slim enough for any pocket",
-        body: "1.1mm profile that barely changes your phone's footprint.",
-      },
-    ],
-  },
 ];
 
 export function getCaseLine(slug: string) {
@@ -312,7 +283,7 @@ export type Product = {
 };
 
 export const bestSellers: Product[] = caseLines.flatMap((line) =>
-  line.colors.slice(0, line.slug === "clear-case" ? 2 : 3).map((color) => ({
+  line.colors.slice(0, 3).map((color) => ({
     id: `${line.slug}-${color.name.toLowerCase().replace(/\s+/g, "-")}`,
     name: line.name,
     price: line.price,

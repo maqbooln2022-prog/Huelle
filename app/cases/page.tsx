@@ -6,7 +6,7 @@ import { caseLines } from "@/lib/products";
 export const metadata: Metadata = {
   title: "Phone Cases — Hülle",
   description:
-    "Explore Hülle's phone case collections — Form, Duo, Air, and Clear — designed with intention.",
+    "Explore Hülle's phone case collections — Form, Duo, and Air — designed with intention.",
 };
 
 export default function CasesPage() {
