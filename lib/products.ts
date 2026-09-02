@@ -10,6 +10,7 @@ export type CaseLine = {
   name: string;
   tagline: string;
   price: number;
+  image: string;
   badges: Badge[];
   colors: ColorOption[];
   devices: string[];
@@ -33,7 +34,8 @@ export const caseLines: CaseLine[] = [
     slug: "form-case",
     name: "Form Case",
     tagline: "Structured protection, signature silhouette",
-    price: 48,
+    price: 1650,
+    image: "/images/cases/form-case.jpg",
     badges: ["new", "magsafe"],
     colors: [
       { name: "Stone Grey", hex: "#8C8A83" },
@@ -67,7 +69,8 @@ export const caseLines: CaseLine[] = [
     slug: "air-case",
     name: "Air Case",
     tagline: "Barely there, fully covered",
-    price: 38,
+    price: 999,
+    image: "/images/cases/air-case.jpg",
     badges: ["magsafe"],
     colors: [
       { name: "Midnight Black", hex: "#1B1B1B" },
@@ -100,7 +103,8 @@ export const caseLines: CaseLine[] = [
     slug: "clear-case",
     name: "Clear Case",
     tagline: "Let the original design speak",
-    price: 34,
+    price: 599,
+    image: "/images/cases/clear-case.jpg",
     badges: ["magsafe"],
     colors: [
       { name: "Crystal Clear", hex: "#F4F3EF" },
@@ -158,6 +162,7 @@ export type Product = {
   shade: string;
   swatch: string;
   slug: string;
+  image: string;
   badges: Badge[];
 };
 
@@ -169,6 +174,7 @@ export const bestSellers: Product[] = caseLines.flatMap((line) =>
     shade: color.name,
     swatch: color.hex,
     slug: line.slug,
+    image: line.image,
     badges: line.badges,
   }))
 );

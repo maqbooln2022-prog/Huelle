@@ -3,9 +3,10 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ShoppingBag } from "lucide-react";
+import Image from "next/image";
 import { useCart } from "@/lib/cart-context";
-import { PhoneMockup } from "@/components/phone-mockup";
 import { Button } from "@/components/ui/button";
+import { formatPrice } from "@/lib/utils";
 
 export function CartDrawer() {
   const { isOpen, closeCart, lines, count } = useCart();
@@ -59,11 +60,13 @@ export function CartDrawer() {
                     <ul className="flex flex-col gap-6">
                       {lines.map((line) => (
                         <li key={line.id} className="flex gap-4">
-                          <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-[#F0EFEA]">
-                            <PhoneMockup
-                              shade={line.swatch}
-                              floatCard={false}
-                              className="w-10"
+                          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-lg bg-[#F0EFEA]">
+                            <Image
+                              src={line.image}
+                              alt={`${line.name} in ${line.shade}`}
+                              fill
+                              sizes="80px"
+                              className="object-cover"
                             />
                           </div>
                           <div className="flex flex-1 flex-col justify-center">
@@ -73,7 +76,7 @@ export function CartDrawer() {
                             </p>
                           </div>
                           <p className="text-sm font-medium">
-                            ${(line.price * line.qty).toFixed(2)}
+                            {formatPrice(line.price * line.qty)}
                           </p>
                         </li>
                       ))}
@@ -85,7 +88,7 @@ export function CartDrawer() {
                   <div className="border-t border-border px-6 py-6">
                     <div className="mb-4 flex items-center justify-between text-sm font-medium">
                       <span>Subtotal</span>
-                      <span>${subtotal.toFixed(2)}</span>
+                      <span>{formatPrice(subtotal)}</span>
                     </div>
                     <Button className="w-full text-sm uppercase">
                       Checkout

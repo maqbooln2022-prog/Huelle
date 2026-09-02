@@ -7,7 +7,7 @@ export function AnnouncementBar() {
         New: Air Case now available
       </Link>
       <span className="hidden text-background/50 sm:inline">·</span>
-      <span className="hidden sm:inline">Free shipping over $40</span>
+      <span className="hidden sm:inline">Free shipping over ₹999</span>
     </div>
   );
 }

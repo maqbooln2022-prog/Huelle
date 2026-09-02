@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
-import { PhoneMockup } from "@/components/phone-mockup";
 import { ProductBadges } from "@/components/product-badges";
 import { StarRating } from "@/components/star-rating";
 import { ColorSwatches } from "@/components/color-swatches";
@@ -12,6 +12,7 @@ import { TrustBadges } from "@/components/trust-badges";
 import { Accordion } from "@/components/accordion";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/cart-context";
+import { formatPrice } from "@/lib/utils";
 import type { CaseLine } from "@/lib/products";
 
 const infoItems = [
@@ -21,7 +22,7 @@ const infoItems = [
   },
   {
     title: "Shipping & Returns",
-    body: "Free shipping on orders over $40. Every case ships within 1-2 business days, with a 100-day return window.",
+    body: "Free shipping on orders over ₹999. Every case ships within 1-2 business days, with a 100-day return window.",
   },
   {
     title: "Contact Us",
@@ -41,13 +42,16 @@ export function ProductDetail({ line }: { line: CaseLine }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="relative flex aspect-square items-center justify-center rounded-2xl bg-[#F0EFEA]"
+          className="relative aspect-square overflow-hidden rounded-2xl bg-[#F0EFEA]"
         >
-          <ProductBadges badges={line.badges} className="absolute left-5 top-5" />
-          <PhoneMockup
-            shade={selectedColor.hex}
-            floatCard={false}
-            className="w-56 sm:w-64"
+          <ProductBadges badges={line.badges} className="absolute left-5 top-5 z-10" />
+          <Image
+            src={line.image}
+            alt={`${line.name} in ${selectedColor.name}`}
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            priority
+            className="object-cover"
           />
         </motion.div>
 
@@ -59,7 +63,7 @@ export function ProductDetail({ line }: { line: CaseLine }) {
 
           <div className="mt-4 flex items-center justify-between">
             <StarRating rating={line.rating} reviewCount={line.reviewCount} />
-            <p className="text-xl font-semibold">${line.price.toFixed(2)}</p>
+            <p className="text-xl font-semibold">{formatPrice(line.price)}</p>
           </div>
 
           <div className="mt-6">
@@ -95,6 +99,7 @@ export function ProductDetail({ line }: { line: CaseLine }) {
                 shade: selectedColor.name,
                 swatch: selectedColor.hex,
                 slug: line.slug,
+                image: line.image,
                 badges: line.badges,
               })
             }

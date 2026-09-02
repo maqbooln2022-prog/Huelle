@@ -2,7 +2,7 @@ import { RotateCcw, Truck, ShieldCheck } from "lucide-react";
 
 const items = [
   { icon: RotateCcw, label: "100-day return policy" },
-  { icon: Truck, label: "Free shipping over $40" },
+  { icon: Truck, label: "Free shipping over ₹999" },
   { icon: ShieldCheck, label: "1-year warranty on every case" },
 ];
 

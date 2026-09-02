@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import { PhoneMockup } from "@/components/phone-mockup";
 import { ProductBadges } from "@/components/product-badges";
 import { useCart } from "@/lib/cart-context";
+import { formatPrice } from "@/lib/utils";
 import type { Product } from "@/lib/products";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -17,19 +18,21 @@ export function ProductCard({ product }: { product: Product }) {
       transition={{ duration: 0.25, ease: "easeOut" }}
       className="group flex flex-col overflow-hidden rounded-xl bg-surface transition-shadow duration-300 hover:shadow-xl"
     >
-      <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-xl bg-[#F0EFEA] p-6">
+      <div className="relative aspect-square overflow-hidden rounded-xl bg-[#F0EFEA]">
         <ProductBadges badges={product.badges} className="absolute left-3 top-3 z-10" />
 
         <Link
           href={`/cases/${product.slug}`}
-          className="absolute inset-0"
+          className="absolute inset-0 z-0"
           aria-label={`View ${product.name} in ${product.shade}`}
         />
 
-        <PhoneMockup
-          shade={product.swatch}
-          floatCard={false}
-          className="pointer-events-none w-32"
+        <Image
+          src={product.image}
+          alt={`${product.name} in ${product.shade}`}
+          fill
+          sizes="(min-width: 1024px) 25vw, 45vw"
+          className="pointer-events-none object-cover"
         />
 
         <button
@@ -47,7 +50,7 @@ export function ProductCard({ product }: { product: Product }) {
           <p className="text-sm font-medium">{product.name}</p>
           <p className="text-xs text-muted-foreground">{product.shade}</p>
         </div>
-        <p className="text-sm font-medium">${product.price.toFixed(2)}</p>
+        <p className="text-sm font-medium">{formatPrice(product.price)}</p>
       </Link>
     </motion.div>
   );
