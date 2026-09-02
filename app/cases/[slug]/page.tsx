@@ -40,7 +40,7 @@ export default async function CaseProductPage({
         highlights={line.highlights}
       />
       <div className="mx-auto max-w-2xl px-6 py-16 lg:px-10 lg:py-20">
-        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
+        <h2 className="text-center font-display text-3xl font-medium tracking-tight sm:text-4xl">
           FAQ
         </h2>
         <div className="mt-8">

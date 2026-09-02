@@ -32,7 +32,7 @@ export function ProductCard({ product }: { product: Product }) {
           alt={`${product.name} in ${product.shade}`}
           fill
           sizes="(min-width: 1024px) 25vw, 45vw"
-          className="pointer-events-none object-cover"
+          className="pointer-events-none object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
 
         <button
@@ -48,7 +48,14 @@ export function ProductCard({ product }: { product: Product }) {
       <Link href={`/cases/${product.slug}`} className="flex items-center justify-between px-1 pt-4">
         <div>
           <p className="text-sm font-medium">{product.name}</p>
-          <p className="text-xs text-muted-foreground">{product.shade}</p>
+          <p className="mt-0.5 flex items-center gap-1.5 text-xs text-muted-foreground">
+            <span
+              aria-hidden
+              className="inline-block h-2.5 w-2.5 rounded-full border border-black/10"
+              style={{ backgroundColor: product.swatch }}
+            />
+            {product.shade}
+          </p>
         </div>
         <p className="text-sm font-medium">{formatPrice(product.price)}</p>
       </Link>

@@ -12,7 +12,7 @@ export function FeatureHighlights({
   return (
     <section className="border-t border-border bg-card py-16 lg:py-20">
       <div className="mx-auto max-w-5xl px-6 lg:px-10">
-        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
+        <h2 className="text-center font-display text-3xl font-medium tracking-tight sm:text-4xl">
           {title}
         </h2>
         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">

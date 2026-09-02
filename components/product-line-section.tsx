@@ -8,7 +8,7 @@ export function ProductLineSection({ line }: { line: CaseLine }) {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+            <h2 className="font-display text-3xl font-medium tracking-tight sm:text-4xl">
               {line.name}
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
