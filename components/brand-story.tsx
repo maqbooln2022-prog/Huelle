@@ -17,8 +17,8 @@ export function BrandStory() {
         >
           <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
             <Image
-              src="/images/lifestyle/craft-hand.jpg"
-              alt="A phone held in hand, showing the case's slim profile"
+              src="/images/cases/air/air-sage.webp"
+              alt="Air Case in sage woven aramid on a studio backdrop"
               fill
               sizes="(min-width: 1024px) 45vw, 90vw"
               className="object-cover"
@@ -27,8 +27,8 @@ export function BrandStory() {
           <div className="absolute -bottom-8 -right-4 hidden w-44 overflow-hidden rounded-xl border-4 border-[#F3F1EC] shadow-xl sm:block lg:-right-8 lg:w-56">
             <div className="relative aspect-[4/5]">
               <Image
-                src="/images/lifestyle/craft-macro.jpg"
-                alt="Macro detail of a matte case finish around the camera"
+                src="/images/lifestyle/weave-macro.webp"
+                alt="Macro detail of the taupe aramid weave texture"
                 fill
                 sizes="224px"
                 className="object-cover"

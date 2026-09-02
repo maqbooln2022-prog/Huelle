@@ -22,9 +22,8 @@ export function PromoBanner() {
             Air Case is <span className="italic">here</span>
           </h2>
           <p className="mt-5 max-w-sm text-sm font-light leading-relaxed text-[#F4F2ED]/70">
-            Our thinnest shell yet, built for days when you want protection
-            without ever noticing it&apos;s there. A 0.9mm profile that
-            disappears in the hand.
+            Our thinnest shell yet — 0.9mm of woven aramid fibre that
+            disappears in the hand, in five weave shades.
           </p>
           <Link
             href="/cases/air-case"
@@ -42,13 +41,12 @@ export function PromoBanner() {
           className="relative min-h-[320px] lg:min-h-[560px]"
         >
           <Image
-            src="/images/lifestyle/promo-air.jpg"
-            alt="Slim phone resting on a clean white desk beside a laptop"
+            src="/images/lifestyle/promo-air-carbon.webp"
+            alt="Two Air Cases in graphite and navy woven aramid, angled side by side"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#2B3444]/30 to-transparent lg:from-[#2B3444]/50" />
         </motion.div>
       </div>
     </section>

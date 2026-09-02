@@ -40,29 +40,29 @@ export const caseLines: CaseLine[] = [
     badges: ["new", "magsafe"],
     colors: [
       {
-        name: "Dusk Mauve",
-        hex: "#BB8E8B",
-        image: "/images/cases/form/form-mauve.webp",
-      },
-      {
         name: "Midnight Black",
-        hex: "#3C3C3A",
+        hex: "#2E2E2D",
         image: "/images/cases/form/form-black.webp",
       },
       {
-        name: "Sage Green",
-        hex: "#93A489",
-        image: "/images/cases/form/form-sage.webp",
-      },
-      {
-        name: "Sand Beige",
-        hex: "#BFB09C",
-        image: "/images/cases/form/form-beige.webp",
-      },
-      {
         name: "Ink Navy",
-        hex: "#3A4A66",
+        hex: "#2E3F70",
         image: "/images/cases/form/form-navy.webp",
+      },
+      {
+        name: "Forest Green",
+        hex: "#3E7C55",
+        image: "/images/cases/form/form-green.webp",
+      },
+      {
+        name: "Rose Pink",
+        hex: "#EE8FA6",
+        image: "/images/cases/form/form-pink.webp",
+      },
+      {
+        name: "Tan Brown",
+        hex: "#9A6440",
+        image: "/images/cases/form/form-brown.webp",
       },
     ],
     devices,
@@ -90,20 +90,40 @@ export const caseLines: CaseLine[] = [
     name: "Air Case",
     tagline: "Barely there, fully covered",
     price: 999,
-    image: "/images/cases/air-case.jpg",
+    image: "/images/cases/air/air-graphite.webp",
     badges: ["magsafe"],
     colors: [
-      { name: "Midnight Black", hex: "#1B1B1B" },
-      { name: "Stone Grey", hex: "#8C8A83" },
-      { name: "Ink Navy", hex: "#2B3444" },
-      { name: "Walnut Brown", hex: "#5B463A" },
-      { name: "Birch White", hex: "#EDE9E1" },
+      {
+        name: "Graphite",
+        hex: "#474745",
+        image: "/images/cases/air/air-graphite.webp",
+      },
+      {
+        name: "Ink Navy",
+        hex: "#3D4C77",
+        image: "/images/cases/air/air-navy.webp",
+      },
+      {
+        name: "Sage Green",
+        hex: "#97B291",
+        image: "/images/cases/air/air-sage.webp",
+      },
+      {
+        name: "Rose Clay",
+        hex: "#C98F93",
+        image: "/images/cases/air/air-rose.webp",
+      },
+      {
+        name: "Taupe",
+        hex: "#AB9D84",
+        image: "/images/cases/air/air-taupe.webp",
+      },
     ],
     devices,
     rating: 4.7,
     reviewCount: 349,
     description:
-      "For those who want their phone to feel like their phone. Air is a 0.9mm shell that preserves the original weight and feel of your device, without giving up drop protection where it counts.",
+      "For those who want their phone to feel like their phone. Air is a 0.9mm woven aramid-fibre shell that preserves the original weight and feel of your device, without giving up drop protection where it counts.",
     highlights: [
       {
         title: "0.9mm profile",
