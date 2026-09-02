@@ -6,13 +6,14 @@ import { BrandStory } from "@/components/brand-story";
 import { caseLines } from "@/lib/products";
 
 export default function Home() {
-  const [formCase, airCase, clearCase] = caseLines;
+  const [formCase, duoCase, airCase, clearCase] = caseLines;
 
   return (
     <>
       <Hero />
       <ProductLineSection line={formCase} />
       <PromoBanner />
+      <ProductLineSection line={duoCase} />
       <ProductLineSection line={clearCase} />
       <BrandStory />
       <MaterialBand />
