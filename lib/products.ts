@@ -15,8 +15,6 @@ export type CaseLine = {
   badges: Badge[];
   colors: ColorOption[];
   devices: string[];
-  rating: number;
-  reviewCount: number;
   description: string;
   highlights: { title: string; body: string }[];
 };
@@ -66,8 +64,6 @@ export const caseLines: CaseLine[] = [
       },
     ],
     devices,
-    rating: 4.8,
-    reviewCount: 512,
     description:
       "Our most protective case, shaped by a single continuous edge. Form is built from a soft-touch bio-based shell over a shock-absorbing core, with a raised lip that keeps your screen and camera clear of the table.",
     highlights: [
@@ -120,8 +116,6 @@ export const caseLines: CaseLine[] = [
       },
     ],
     devices,
-    rating: 4.7,
-    reviewCount: 349,
     description:
       "For those who want their phone to feel like their phone. Air is a 0.9mm woven aramid-fibre shell that preserves the original weight and feel of your device, without giving up drop protection where it counts.",
     highlights: [
@@ -151,8 +145,6 @@ export const caseLines: CaseLine[] = [
       { name: "Smoke Tint", hex: "#B9B6AE" },
     ],
     devices,
-    rating: 4.6,
-    reviewCount: 201,
     description:
       "A transparent shell built with an anti-yellowing polymer, so it looks as clean on day 500 as it did on day one. Shows off your phone's original color while adding real drop protection.",
     highlights: [

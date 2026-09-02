@@ -8,9 +8,8 @@ import { useCart } from "@/lib/cart-context";
 
 const navLinks = [
   { label: "Phone Cases", href: "/cases" },
-  { label: "Case Bundles", href: "/cases" },
-  { label: "Screen Protectors", href: "/cases" },
-  { label: "Accessories", href: "/cases" },
+  { label: "Warranty", href: "/warranty" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Header() {

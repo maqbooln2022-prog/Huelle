@@ -53,10 +53,10 @@ export function BrandStory() {
             choose it.
           </h2>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
-            Hülle was born from that simple idea. Every shape, seam, and
-            shade is considered before it earns a place in the lineup —
-            soft-touch finishes, bio-based shells, and edges that follow the
-            device instead of fighting it.
+            Hülle — German for &ldquo;shell&rdquo; — was born from that
+            simple idea. Every shape, seam, and shade is considered before
+            it earns a place in the lineup: soft-touch finishes, bio-based
+            shells, and edges that follow the device instead of fighting it.
           </p>
           <Link
             href="/cases"

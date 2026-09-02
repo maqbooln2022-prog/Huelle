@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
 import { ProductBadges } from "@/components/product-badges";
-import { StarRating } from "@/components/star-rating";
 import { ColorSwatches } from "@/components/color-swatches";
 import { DeviceSelect } from "@/components/device-select";
 import { TrustBadges } from "@/components/trust-badges";
@@ -62,10 +61,7 @@ export function ProductDetail({ line }: { line: CaseLine }) {
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{line.tagline}</p>
 
-          <div className="mt-4 flex items-center justify-between">
-            <StarRating rating={line.rating} reviewCount={line.reviewCount} />
-            <p className="text-xl font-semibold">{formatPrice(line.price)}</p>
-          </div>
+          <p className="mt-4 text-xl font-semibold">{formatPrice(line.price)}</p>
 
           <div className="mt-6">
             <ColorSwatches
@@ -107,6 +103,12 @@ export function ProductDetail({ line }: { line: CaseLine }) {
           >
             Add to cart
           </Button>
+
+          <div className="mt-4 flex flex-col gap-1.5 text-xs text-muted-foreground">
+            <p>100 days to change your mind — full refund on unused cases.</p>
+            <p>1-year warranty against manufacturing defects.</p>
+            <p>Ships in 1–2 business days. Free shipping over ₹999.</p>
+          </div>
 
           <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
             {line.description}
