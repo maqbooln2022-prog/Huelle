@@ -33,8 +33,8 @@ const slides = [
     sub: "Gradients and confetti on the ridged shell — six prints, ₹2,499.",
     ctaHref: "/cases/gen-z",
     ctaLabel: "Shop Gen-Z",
-    image: "/images/lifestyle/genz-trio.webp",
-    alt: "Gen-Z collection cases in Sunset Fade, Ocean Fade, and Neon Dusk prints",
+    image: "/images/lifestyle/genz-trio-v2.webp",
+    alt: "Gen-Z collection cases in Sunset Fade, Confetti Black, and Neon Dusk prints",
   },
 ];
 
