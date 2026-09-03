@@ -4,11 +4,12 @@ const columns = [
   {
     heading: "Shop",
     links: [
-      { label: "Phone Cases", href: "/cases" },
+      { label: "iPhone Cases", href: "/cases" },
       { label: "Form Case", href: "/cases/form-case" },
       { label: "Duo Case", href: "/cases/duo-case" },
       { label: "Air Case", href: "/cases/air-case" },
       { label: "Gen-Z Collection", href: "/cases/gen-z" },
+      { label: "Samsung Cases", href: "/cases/samsung" },
     ],
   },
   {

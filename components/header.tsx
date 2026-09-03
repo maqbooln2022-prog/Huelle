@@ -7,7 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/lib/cart-context";
 
 const navLinks = [
-  { label: "Phone Cases", href: "/cases" },
+  { label: "iPhone Cases", href: "/cases" },
+  { label: "Samsung Cases", href: "/cases/samsung" },
   { label: "Warranty", href: "/warranty" },
   { label: "Contact", href: "/contact" },
 ];
