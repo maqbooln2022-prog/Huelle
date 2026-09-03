@@ -441,7 +441,7 @@ export const productFaqs = [
   },
   {
     title: "Does it come with a warranty?",
-    body: "Yes — every case includes a 1-year warranty against manufacturing defects. If something's wrong with the materials or craftsmanship, we'll replace it.",
+    body: "Yes — every case includes a 3-month warranty against manufacturing defects. If something's wrong with the materials or craftsmanship, we'll replace it.",
   },
   {
     title: "Can I return or exchange it?",

@@ -156,7 +156,7 @@ export function ProductDetail({ line }: { line: CaseLine }) {
 
           <div className="mt-4 flex flex-col gap-1.5 text-xs text-muted-foreground">
             <p>100 days to change your mind — full refund on unused cases.</p>
-            <p>1-year warranty against manufacturing defects.</p>
+            <p>3-month warranty against manufacturing defects.</p>
             <p>Ships in 1–2 business days. Free shipping over ₹999.</p>
           </div>
 

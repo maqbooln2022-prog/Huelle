@@ -3,14 +3,14 @@ import { PolicyPage } from "@/components/policy-page";
 
 export const metadata: Metadata = {
   title: "Warranty — Hülle",
-  description: "Every Hülle case carries a 1-year warranty. Here is what it covers and how to claim.",
+  description: "Every Hülle case carries a 3-month warranty. Here is what it covers and how to claim.",
 };
 
 export default function WarrantyPage() {
   return (
     <PolicyPage
       title="Warranty"
-      intro="Every Hülle case includes a 1-year warranty against manufacturing defects, counted from the day your order is delivered."
+      intro="Every Hülle case includes a 3-month warranty against manufacturing defects, counted from the day your order is delivered."
       sections={[
         {
           heading: "What is covered",
@@ -21,7 +21,7 @@ export default function WarrantyPage() {
         {
           heading: "What is not covered",
           body: [
-            "Normal wear from daily use, cosmetic scratches, damage from misuse or modification, and cases bought second-hand or from unauthorised sellers.",
+            "Normal wear from daily use, cosmetic scratches, abrasion, damage from drops, misuse, or modification, damage during transport, and cases bought second-hand or from unauthorised sellers.",
           ],
         },
         {
