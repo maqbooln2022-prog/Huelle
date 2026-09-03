@@ -54,12 +54,12 @@ export const caseLines: CaseLine[] = [
       {
         name: "Charcoal",
         hex: "#3D403C",
-        image: "/images/cases/form/form-charcoal-navy.webp",
-        imageLabels: ["On navy iPhone", "On orange iPhone", "On white iPhone"],
+        image: "/images/cases/form/form-charcoal-white.webp",
+        imageLabels: ["On white iPhone", "On orange iPhone", "On navy iPhone"],
         images: [
-          "/images/cases/form/form-charcoal-navy.webp",
-          "/images/cases/form/form-charcoal-orange.webp",
           "/images/cases/form/form-charcoal-white.webp",
+          "/images/cases/form/form-charcoal-orange.webp",
+          "/images/cases/form/form-charcoal-navy.webp",
         ],
       },
       {

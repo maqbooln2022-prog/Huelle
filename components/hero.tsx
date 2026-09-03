@@ -13,8 +13,8 @@ const slides = [
     sub: "The Form Case — ridged for grip, MagSafe built in, drop-tested to 1.8 metres. Eleven shades, ₹2,499.",
     ctaHref: "/cases/form-case",
     ctaLabel: "Shop Form Case",
-    image: "/images/lifestyle/form-trio-v3.webp",
-    alt: "Form Case in Olive on an orange iPhone, Oxblood on white, and Charcoal on navy",
+    image: "/images/lifestyle/form-trio-v4.webp",
+    alt: "Form Case in Olive on an orange iPhone, with Oxblood and Charcoal on white",
   },
   {
     key: "air",
