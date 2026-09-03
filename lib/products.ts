@@ -18,6 +18,7 @@ export type CaseLine = {
   devices: string[];
   description: string;
   highlights: { title: string; body: string }[];
+  galleryLabels?: string[];
 };
 
 export const devices = [
@@ -124,25 +125,71 @@ export const caseLines: CaseLine[] = [
     price: 1299,
     image: "/images/cases/duo/duo-olive.webp",
     badges: ["new", "magsafe"],
+    galleryLabels: ["On navy iPhone", "On orange iPhone", "On white iPhone"],
     colors: [
       {
-        name: "Olive & Orange",
+        name: "Olive",
         hex: "#4E5540",
         image: "/images/cases/duo/duo-olive.webp",
       },
       {
-        name: "Navy & Coral",
+        name: "Navy",
         hex: "#33415A",
-        image: "/images/cases/duo/duo-navy.webp",
+        image: "/images/cases/duo/duo-navy-orange.webp",
+        images: [
+          "/images/cases/duo/duo-navy-orange.webp",
+          "/images/cases/duo/duo-navy-navy.webp",
+          "/images/cases/duo/duo-navy-white.webp",
+        ],
+      },
+      {
+        name: "Burgundy",
+        hex: "#6E3038",
+        image: "/images/cases/duo/duo-burgundy-navy.webp",
+        images: [
+          "/images/cases/duo/duo-burgundy-navy.webp",
+          "/images/cases/duo/duo-burgundy-orange.webp",
+          "/images/cases/duo/duo-burgundy-white.webp",
+        ],
+      },
+      {
+        name: "Charcoal",
+        hex: "#4A4E48",
+        image: "/images/cases/duo/duo-charcoal-orange.webp",
+        images: [
+          "/images/cases/duo/duo-charcoal-orange.webp",
+          "/images/cases/duo/duo-charcoal-navy.webp",
+          "/images/cases/duo/duo-charcoal-white.webp",
+        ],
+      },
+      {
+        name: "Chocolate",
+        hex: "#574A3B",
+        image: "/images/cases/duo/duo-chocolate-white.webp",
+        images: [
+          "/images/cases/duo/duo-chocolate-white.webp",
+          "/images/cases/duo/duo-chocolate-navy.webp",
+          "/images/cases/duo/duo-chocolate-orange.webp",
+        ],
+      },
+      {
+        name: "Slate",
+        hex: "#4C5A56",
+        image: "/images/cases/duo/duo-slate-white.webp",
+        images: [
+          "/images/cases/duo/duo-slate-white.webp",
+          "/images/cases/duo/duo-slate-navy.webp",
+          "/images/cases/duo/duo-slate-orange.webp",
+        ],
       },
     ],
     devices,
     description:
-      "A soft-touch shell with a contrast camera plate that frames your lenses in colour. The same raised-lip protection as the rest of the lineup, in pairings that don't take themselves too seriously.",
+      "A soft-touch shell that leaves the camera plate open, so your iPhone's own colour completes the pair. Same raised-lip protection as the rest of the lineup — the second tone is already in your pocket.",
     highlights: [
       {
-        title: "Contrast camera plate",
-        body: "A second colour frames the camera — the detail you notice from across the table.",
+        title: "Your phone completes it",
+        body: "The open camera plate shows your iPhone's own colour — every pairing is personal.",
       },
       {
         title: "Soft-touch finish",
@@ -226,10 +273,102 @@ export const caseLines: CaseLine[] = [
       },
     ],
   },
+  {
+    slug: "gen-z",
+    name: "Gen-Z",
+    tagline: "Prints with the volume up",
+    price: 1299,
+    image: "/images/cases/genz/genz-sunset-fade-navy.webp",
+    badges: ["new", "limited"],
+    galleryLabels: ["On navy iPhone", "On orange iPhone", "On white iPhone"],
+    colors: [
+      {
+        name: "Sunset Fade",
+        hex: "#EE8E75",
+        image: "/images/cases/genz/genz-sunset-fade-navy.webp",
+        images: [
+          "/images/cases/genz/genz-sunset-fade-navy.webp",
+          "/images/cases/genz/genz-sunset-fade-orange.webp",
+          "/images/cases/genz/genz-sunset-fade-white.webp",
+        ],
+      },
+      {
+        name: "Ocean Fade",
+        hex: "#8CA3DB",
+        image: "/images/cases/genz/genz-ocean-fade-navy.webp",
+        images: [
+          "/images/cases/genz/genz-ocean-fade-navy.webp",
+          "/images/cases/genz/genz-ocean-fade-orange.webp",
+          "/images/cases/genz/genz-ocean-fade-white.webp",
+        ],
+      },
+      {
+        name: "Neon Dusk",
+        hex: "#A02472",
+        image: "/images/cases/genz/genz-neon-dusk-navy.webp",
+        images: [
+          "/images/cases/genz/genz-neon-dusk-navy.webp",
+          "/images/cases/genz/genz-neon-dusk-orange.webp",
+          "/images/cases/genz/genz-neon-dusk-white.webp",
+        ],
+      },
+      {
+        name: "Sherbet",
+        hex: "#C7E79B",
+        image: "/images/cases/genz/genz-sherbet-navy.webp",
+        images: [
+          "/images/cases/genz/genz-sherbet-navy.webp",
+          "/images/cases/genz/genz-sherbet-orange.webp",
+          "/images/cases/genz/genz-sherbet-white.webp",
+        ],
+      },
+      {
+        name: "Confetti Black",
+        hex: "#232323",
+        image: "/images/cases/genz/genz-confetti-black-navy.webp",
+        images: [
+          "/images/cases/genz/genz-confetti-black-navy.webp",
+          "/images/cases/genz/genz-confetti-black-orange.webp",
+          "/images/cases/genz/genz-confetti-black-white.webp",
+        ],
+      },
+      {
+        name: "Confetti Cream",
+        hex: "#EDE5D4",
+        image: "/images/cases/genz/genz-confetti-cream-navy.webp",
+        images: [
+          "/images/cases/genz/genz-confetti-cream-navy.webp",
+          "/images/cases/genz/genz-confetti-cream-orange.webp",
+          "/images/cases/genz/genz-confetti-cream-white.webp",
+        ],
+      },
+    ],
+    devices,
+    description:
+      "The ridged shell, reprinted for the feed — gradients and confetti that photograph as loud as they look. Same raised-lip protection, same MagSafe, zero restraint.",
+    highlights: [
+      {
+        title: "Prints that stay put",
+        body: "The graphic is bonded into the shell's finish, not stickered on top.",
+      },
+      {
+        title: "Same ridged grip",
+        body: "The Form Case silhouette underneath — ridges that hold on when your hands don't.",
+      },
+      {
+        title: "Made for the camera",
+        body: "Shot on every shade of iPhone — pick the print, the gallery shows your phone.",
+      },
+    ],
+  },
 ];
 
 export function getCaseLine(slug: string) {
   return caseLines.find((line) => line.slug === slug);
+}
+
+export function shadeSlug(name: string) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
 export const productFaqs = [

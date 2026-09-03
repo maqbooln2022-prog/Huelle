@@ -7,10 +7,11 @@ import { Plus } from "lucide-react";
 import { ProductBadges } from "@/components/product-badges";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/utils";
-import type { Product } from "@/lib/products";
+import { shadeSlug, type Product } from "@/lib/products";
 
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
+  const detailHref = `/cases/${product.slug}?shade=${shadeSlug(product.shade)}`;
 
   return (
     <motion.div
@@ -22,7 +23,7 @@ export function ProductCard({ product }: { product: Product }) {
         <ProductBadges badges={product.badges} className="absolute left-3 top-3 z-10" />
 
         <Link
-          href={`/cases/${product.slug}`}
+          href={detailHref}
           className="absolute inset-0 z-0"
           aria-label={`View ${product.name} in ${product.shade}`}
         />
@@ -45,7 +46,7 @@ export function ProductCard({ product }: { product: Product }) {
         </button>
       </div>
 
-      <Link href={`/cases/${product.slug}`} className="flex items-center justify-between px-1 pt-4">
+      <Link href={detailHref} className="flex items-center justify-between px-1 pt-4">
         <div>
           <p className="text-sm font-medium">{product.name}</p>
           <p className="mt-0.5 flex items-center gap-1.5 text-xs text-muted-foreground">

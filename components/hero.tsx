@@ -13,8 +13,8 @@ const slides = [
     sub: "The Form Case — ridged for grip, MagSafe built in, drop-tested to 1.8 metres. Six shades, ₹1,650.",
     ctaHref: "/cases/form-case",
     ctaLabel: "Shop Form Case",
-    image: "/images/lifestyle/form-lineup-ridge.webp",
-    alt: "Form Case lineup in six shades — rose, moss, black, terracotta, navy, and walnut",
+    image: "/images/lifestyle/form-trio.webp",
+    alt: "Form Case in Midnight Black, Terracotta, and Ink Navy",
   },
   {
     key: "air",
@@ -23,8 +23,18 @@ const slides = [
     sub: "A woven aramid shell that disappears in the hand. MagSafe built in, five weave shades — ₹999.",
     ctaHref: "/cases/air-case",
     ctaLabel: "Shop Air Case",
-    image: "/images/lifestyle/air-lineup-carbon.webp",
-    alt: "Air Case lineup in five aramid weave shades — rose, sage, graphite, navy, and taupe",
+    image: "/images/lifestyle/air-trio.webp",
+    alt: "Air Case in sage, graphite, and navy aramid weave",
+  },
+  {
+    key: "gen-z",
+    eyebrow: "The Gen-Z Collection",
+    title: ["Loud,", "on purpose."],
+    sub: "Gradients and confetti on the ridged shell — six prints, ₹1,299.",
+    ctaHref: "/cases/gen-z",
+    ctaLabel: "Shop Gen-Z",
+    image: "/images/lifestyle/genz-trio.webp",
+    alt: "Gen-Z collection cases in Sunset Fade, Ocean Fade, and Neon Dusk prints",
   },
 ];
 

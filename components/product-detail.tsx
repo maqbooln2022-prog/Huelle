@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
@@ -12,7 +13,7 @@ import { Accordion } from "@/components/accordion";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/utils";
-import type { CaseLine } from "@/lib/products";
+import { shadeSlug, type CaseLine } from "@/lib/products";
 
 const infoItems = [
   {
@@ -29,10 +30,17 @@ const infoItems = [
   },
 ];
 
-const angleLabels = ["Back view", "Camera detail", "Logo detail"];
+const defaultGalleryLabels = ["Back view", "Camera detail", "Logo detail"];
 
 export function ProductDetail({ line }: { line: CaseLine }) {
-  const [selectedColor, setSelectedColor] = useState(line.colors[0]);
+  const searchParams = useSearchParams();
+  const [selectedColor, setSelectedColor] = useState(() => {
+    const requested = searchParams.get("shade");
+    return (
+      line.colors.find((color) => shadeSlug(color.name) === requested) ??
+      line.colors[0]
+    );
+  });
   const [selectedDevice, setSelectedDevice] = useState(line.devices[0]);
   const [activeImage, setActiveImage] = useState(0);
   const { addItem } = useCart();
@@ -40,6 +48,7 @@ export function ProductDetail({ line }: { line: CaseLine }) {
   const gallery =
     selectedColor.images ?? [selectedColor.image ?? line.image];
   const mainSrc = gallery[Math.min(activeImage, gallery.length - 1)];
+  const angleLabels = line.galleryLabels ?? defaultGalleryLabels;
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-16">

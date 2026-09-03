@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProductDetail } from "@/components/product-detail";
@@ -34,7 +35,9 @@ export default async function CaseProductPage({
 
   return (
     <>
-      <ProductDetail line={line} />
+      <Suspense>
+        <ProductDetail line={line} />
+      </Suspense>
       <FeatureHighlights
         title={`What sets the ${line.name} apart`}
         highlights={line.highlights}

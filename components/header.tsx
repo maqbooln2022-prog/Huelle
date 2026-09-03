@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Search, User, ShoppingBag } from "lucide-react";
+import { Menu, X, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/lib/cart-context";
 
@@ -50,20 +50,6 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-1">
-          <button
-            type="button"
-            aria-label="Search"
-            className="hidden h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-card sm:flex"
-          >
-            <Search className="h-4 w-4" strokeWidth={1.5} />
-          </button>
-          <button
-            type="button"
-            aria-label="Account"
-            className="hidden h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-card sm:flex"
-          >
-            <User className="h-4 w-4" strokeWidth={1.5} />
-          </button>
           <button
             type="button"
             onClick={openCart}

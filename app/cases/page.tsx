@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { ProductCard } from "@/components/product-card";
-import { CollectionControls } from "@/components/collection-controls";
+import { CollectionGrid } from "@/components/collection-grid";
 import { caseLines } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Phone Cases — Hülle",
   description:
-    "Explore Hülle's phone case collections — Form, Duo, and Air — designed with intention.",
+    "Explore Hülle's phone case collections — Form, Duo, Air, and the Gen-Z Collection.",
 };
 
 export default function CasesPage() {
@@ -37,13 +36,10 @@ export default function CasesPage() {
         </p>
       </div>
 
-      <CollectionControls />
-
-      <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-8">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      <CollectionGrid
+        products={products}
+        lines={caseLines.map((line) => ({ slug: line.slug, name: line.name }))}
+      />
     </div>
   );
 }
