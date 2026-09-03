@@ -4,14 +4,14 @@ import { PolicyPage } from "@/components/policy-page";
 export const metadata: Metadata = {
   title: "Shipping & Returns — Hülle",
   description:
-    "How Hülle orders ship, and how the 100-day return window works.",
+    "How Hülle orders ship, and how the 30-day return window works.",
 };
 
 export default function ReturnsPage() {
   return (
     <PolicyPage
       title="Shipping & Returns"
-      intro="Every order ships within 1–2 business days, and every case comes with 100 days to change your mind."
+      intro="Every order ships within 1–2 business days, and every case comes with 30 days to change your mind."
       sections={[
         {
           heading: "Shipping",
@@ -21,9 +21,9 @@ export default function ReturnsPage() {
           ],
         },
         {
-          heading: "100-day returns",
+          heading: "30-day returns",
           body: [
-            "You have 100 days from delivery to return an unused case for a full refund — no questions, no restocking fee.",
+            "You have 30 days from delivery to return an unused case for a full refund — no questions, no restocking fee.",
             "To start a return, write to us via the contact page with your order number. We will send you the return instructions, and issue the refund to your original payment method once the case reaches us and passes a quick inspection.",
           ],
         },

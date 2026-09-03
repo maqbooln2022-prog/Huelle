@@ -445,7 +445,7 @@ export const productFaqs = [
   },
   {
     title: "Can I return or exchange it?",
-    body: "You have 100 days to return an unused case for a full refund. Contact support to start a return.",
+    body: "You have 30 days to return an unused case for a full refund. Contact support to start a return.",
   },
 ];
 

@@ -22,7 +22,7 @@ const infoItems = [
   },
   {
     title: "Shipping & Returns",
-    body: "Free shipping on orders over ₹999. Every case ships within 1-2 business days, with a 100-day return window.",
+    body: "Free shipping on orders over ₹999. Every case ships within 1-2 business days, with a 30-day return window.",
   },
   {
     title: "Contact Us",
@@ -155,7 +155,7 @@ export function ProductDetail({ line }: { line: CaseLine }) {
           </Button>
 
           <div className="mt-4 flex flex-col gap-1.5 text-xs text-muted-foreground">
-            <p>100 days to change your mind — full refund on unused cases.</p>
+            <p>30 days to change your mind — full refund on unused cases.</p>
             <p>3-month warranty against manufacturing defects.</p>
             <p>Ships in 1–2 business days. Free shipping over ₹999.</p>
           </div>
