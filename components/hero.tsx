@@ -13,8 +13,8 @@ const slides = [
     sub: "The Form Case — ridged for grip, MagSafe built in, drop-tested to 1.8 metres. Eleven shades, ₹2,499.",
     ctaHref: "/cases/form-case",
     ctaLabel: "Shop Form Case",
-    image: "/images/lifestyle/form-trio-v4.webp",
-    alt: "Form Case in Olive on an orange iPhone, with Oxblood and Charcoal on white",
+    image: "/images/lifestyle/form-trio-v5.webp",
+    alt: "Form Case in Olive on a navy iPhone, Oxblood on orange, and Charcoal on white",
   },
   {
     key: "air",
@@ -33,7 +33,7 @@ const slides = [
     sub: "Gradients and confetti on the ridged shell — six prints, ₹2,499.",
     ctaHref: "/cases/gen-z",
     ctaLabel: "Shop Gen-Z",
-    image: "/images/lifestyle/genz-trio-v2.webp",
+    image: "/images/lifestyle/genz-trio-v3.webp",
     alt: "Gen-Z collection cases in Sunset Fade, Confetti Black, and Neon Dusk prints",
   },
 ];
