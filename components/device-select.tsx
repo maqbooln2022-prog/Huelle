@@ -1,13 +1,14 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
+import type { DeviceOption } from "@/lib/products";
 
 export function DeviceSelect({
   devices,
   value,
   onChange,
 }: {
-  devices: string[];
+  devices: DeviceOption[];
   value: string;
   onChange: (value: string) => void;
 }) {
@@ -19,8 +20,13 @@ export function DeviceSelect({
         className="h-12 w-full appearance-none rounded-lg border border-border bg-surface px-4 pr-10 text-sm font-medium"
       >
         {devices.map((device) => (
-          <option key={device} value={device}>
-            {device}
+          <option
+            key={device.name}
+            value={device.name}
+            disabled={device.comingSoon}
+          >
+            {device.name}
+            {device.comingSoon ? " — Coming soon" : ""}
           </option>
         ))}
       </select>

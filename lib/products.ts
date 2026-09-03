@@ -8,6 +8,11 @@ export type ColorOption = {
   imageLabels?: string[];
 };
 
+export type DeviceOption = {
+  name: string;
+  comingSoon?: boolean;
+};
+
 export type CaseLine = {
   slug: string;
   name: string;
@@ -16,19 +21,17 @@ export type CaseLine = {
   image: string;
   badges: Badge[];
   colors: ColorOption[];
-  devices: string[];
+  devices: DeviceOption[];
   description: string;
   highlights: { title: string; body: string }[];
   galleryLabels?: string[];
 };
 
-export const devices = [
-  "iPhone 17 Pro Max",
-  "iPhone 17 Pro",
-  "iPhone 17",
-  "iPhone 16 Pro Max",
-  "iPhone 16 Pro",
-  "iPhone 16",
+export const devices: DeviceOption[] = [
+  { name: "iPhone 17 Pro Max" },
+  { name: "iPhone 17 Pro" },
+  { name: "iPhone 18 Pro Max", comingSoon: true },
+  { name: "iPhone 18 Pro", comingSoon: true },
 ];
 
 export const caseLines: CaseLine[] = [

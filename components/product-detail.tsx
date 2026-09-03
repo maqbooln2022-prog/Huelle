@@ -41,7 +41,9 @@ export function ProductDetail({ line }: { line: CaseLine }) {
       line.colors[0]
     );
   });
-  const [selectedDevice, setSelectedDevice] = useState(line.devices[0]);
+  const [selectedDevice, setSelectedDevice] = useState(
+    () => line.devices.find((d) => !d.comingSoon)?.name ?? line.devices[0].name
+  );
   const [activeImage, setActiveImage] = useState(0);
   const { addItem } = useCart();
 
