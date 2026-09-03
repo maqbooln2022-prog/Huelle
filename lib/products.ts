@@ -5,6 +5,7 @@ export type ColorOption = {
   hex: string;
   image?: string;
   images?: string[];
+  imageLabels?: string[];
 };
 
 export type CaseLine = {
@@ -39,6 +40,39 @@ export const caseLines: CaseLine[] = [
     image: "/images/cases/form/form-black-back.webp",
     badges: ["new", "magsafe"],
     colors: [
+      {
+        name: "Oxblood",
+        hex: "#6B2E2A",
+        image: "/images/cases/form/form-oxblood-orange.webp",
+        imageLabels: ["On orange iPhone", "On navy iPhone", "On white iPhone"],
+        images: [
+          "/images/cases/form/form-oxblood-orange.webp",
+          "/images/cases/form/form-oxblood-navy.webp",
+          "/images/cases/form/form-oxblood-white.webp",
+        ],
+      },
+      {
+        name: "Forest",
+        hex: "#33513F",
+        image: "/images/cases/form/form-forest-navy.webp",
+        imageLabels: ["On navy iPhone", "On orange iPhone", "On white iPhone"],
+        images: [
+          "/images/cases/form/form-forest-navy.webp",
+          "/images/cases/form/form-forest-orange.webp",
+          "/images/cases/form/form-forest-white.webp",
+        ],
+      },
+      {
+        name: "Slate Blue",
+        hex: "#5F7186",
+        image: "/images/cases/form/form-slate-blue-white.webp",
+        imageLabels: ["On white iPhone", "On navy iPhone", "On orange iPhone"],
+        images: [
+          "/images/cases/form/form-slate-blue-white.webp",
+          "/images/cases/form/form-slate-blue-navy.webp",
+          "/images/cases/form/form-slate-blue-orange.webp",
+        ],
+      },
       {
         name: "Midnight Black",
         hex: "#2E2E2D",
@@ -277,7 +311,7 @@ export const caseLines: CaseLine[] = [
     slug: "gen-z",
     name: "Gen-Z",
     tagline: "Prints with the volume up",
-    price: 1299,
+    price: 2499,
     image: "/images/cases/genz/genz-sunset-fade-navy.webp",
     badges: ["new", "limited"],
     galleryLabels: ["On navy iPhone", "On orange iPhone", "On white iPhone"],

@@ -48,7 +48,8 @@ export function ProductDetail({ line }: { line: CaseLine }) {
   const gallery =
     selectedColor.images ?? [selectedColor.image ?? line.image];
   const mainSrc = gallery[Math.min(activeImage, gallery.length - 1)];
-  const angleLabels = line.galleryLabels ?? defaultGalleryLabels;
+  const angleLabels =
+    selectedColor.imageLabels ?? line.galleryLabels ?? defaultGalleryLabels;
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-16">
