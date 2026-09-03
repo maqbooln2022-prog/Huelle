@@ -36,7 +36,7 @@ export const caseLines: CaseLine[] = [
     slug: "form-case",
     name: "Form Case",
     tagline: "Structured protection, signature silhouette",
-    price: 1650,
+    price: 2499,
     image: "/images/cases/form/form-black-back.webp",
     badges: ["new", "magsafe"],
     colors: [

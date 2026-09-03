@@ -10,7 +10,7 @@ const slides = [
     key: "form",
     eyebrow: "Your style. Your case.",
     title: ["Function,", "meet Form."],
-    sub: "The Form Case — ridged for grip, MagSafe built in, drop-tested to 1.8 metres. Nine shades, ₹1,650.",
+    sub: "The Form Case — ridged for grip, MagSafe built in, drop-tested to 1.8 metres. Nine shades, ₹2,499.",
     ctaHref: "/cases/form-case",
     ctaLabel: "Shop Form Case",
     image: "/images/lifestyle/form-trio-v2.webp",
