@@ -4,10 +4,13 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const lines = [
-  { name: "Form Case", image: "/images/packaging/form-closed.webp" },
-  { name: "Duo Case", image: "/images/packaging/duo-closed.webp" },
-  { name: "Air Case", image: "/images/packaging/air-closed.webp" },
-  { name: "Gen-Z Collection", image: "/images/packaging/genz-closed.webp" },
+  { name: "Form Case", image: "/images/packaging/form-closed-feathered.png" },
+  { name: "Duo Case", image: "/images/packaging/duo-closed-feathered.png" },
+  { name: "Air Case", image: "/images/packaging/air-closed-feathered.png" },
+  {
+    name: "Gen-Z Collection",
+    image: "/images/packaging/genz-closed-feathered.png",
+  },
 ];
 
 export function PackagingShowcase() {
@@ -42,7 +45,7 @@ export function PackagingShowcase() {
         >
           <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(ellipse_at_center,_rgba(232,145,45,0.14),_transparent_70%)]" />
           <Image
-            src="/images/packaging/form-opened.webp"
+            src="/images/packaging/form-opened-feathered.png"
             alt="Form Case in Terracotta, seated on its tray inside an opened Hülle box"
             fill
             sizes="(min-width: 1024px) 60vw, 100vw"
