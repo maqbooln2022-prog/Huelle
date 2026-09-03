@@ -41,6 +41,28 @@ export const caseLines: CaseLine[] = [
     badges: ["new", "magsafe"],
     colors: [
       {
+        name: "Olive",
+        hex: "#58604A",
+        image: "/images/cases/form/form-olive-orange.webp",
+        imageLabels: ["On orange iPhone", "On navy iPhone", "On white iPhone"],
+        images: [
+          "/images/cases/form/form-olive-orange.webp",
+          "/images/cases/form/form-olive-navy.webp",
+          "/images/cases/form/form-olive-white.webp",
+        ],
+      },
+      {
+        name: "Charcoal",
+        hex: "#3D403C",
+        image: "/images/cases/form/form-charcoal-navy.webp",
+        imageLabels: ["On navy iPhone", "On orange iPhone", "On white iPhone"],
+        images: [
+          "/images/cases/form/form-charcoal-navy.webp",
+          "/images/cases/form/form-charcoal-orange.webp",
+          "/images/cases/form/form-charcoal-white.webp",
+        ],
+      },
+      {
         name: "Oxblood",
         hex: "#6B2E2A",
         image: "/images/cases/form/form-oxblood-orange.webp",
