@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Menu, X, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/lib/cart-context";
+import { AccountMenu } from "@/components/account-menu";
 
 const navLinks = [
   { label: "iPhone Cases", href: "/cases" },
@@ -51,6 +52,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-1">
+          <AccountMenu />
           <button
             type="button"
             onClick={openCart}

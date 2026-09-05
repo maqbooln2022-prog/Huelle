@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import { AnnouncementBar } from "@/components/announcement-bar";
@@ -36,13 +37,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <CartProvider>
-          <AnnouncementBar />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <CartDrawer />
-        </CartProvider>
+        <SessionProvider>
+          <CartProvider>
+            <AnnouncementBar />
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <CartDrawer />
+          </CartProvider>
+        </SessionProvider>
       </body>
     </html>
   );
