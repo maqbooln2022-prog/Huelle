@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { User, LogOut } from "lucide-react";
 import { useSession, signIn, signOut } from "next-auth/react";
 
@@ -46,19 +45,9 @@ export function AccountMenu() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-label="Account menu"
-        className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-card transition-opacity hover:opacity-80"
+        className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-card transition-opacity hover:opacity-80"
       >
-        {session.user?.image ? (
-          <Image
-            src={session.user.image}
-            alt={session.user.name ?? "Account"}
-            width={36}
-            height={36}
-            className="h-full w-full object-cover"
-          />
-        ) : (
-          <span className="text-xs font-medium uppercase">{initial}</span>
-        )}
+        <span className="text-xs font-medium uppercase">{initial}</span>
       </button>
 
       {open && (
