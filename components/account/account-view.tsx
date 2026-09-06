@@ -12,6 +12,9 @@ import {
   Mail,
   Plus,
   Trash2,
+  QrCode,
+  Banknote,
+  Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -308,25 +311,119 @@ function AddressesPanel() {
   );
 }
 
+const paymentMethods = [
+  {
+    key: "upi",
+    label: "UPI",
+    icon: QrCode,
+    description: "Pay instantly via Google Pay, PhonePe, Paytm, or any UPI app.",
+  },
+  {
+    key: "card",
+    label: "Debit & Credit Card",
+    icon: CreditCard,
+    description:
+      "Visa, Mastercard, RuPay, and Amex accepted — entered securely through our payment gateway at checkout.",
+  },
+  {
+    key: "cod",
+    label: "Cash on Delivery",
+    icon: Banknote,
+    description: "Pay with cash when your order arrives at your doorstep.",
+  },
+] as const;
+
+type PaymentKey = (typeof paymentMethods)[number]["key"];
+
 function PaymentsPanel() {
+  const [preferred, setPreferred] = useState<PaymentKey>("upi");
+  const [upiId, setUpiId] = useState("");
+  const [savedUpiId, setSavedUpiId] = useState<string | null>(null);
+
   return (
     <div>
       <PanelHeading
         title="Payment Options"
-        description="Cards and other payment methods saved to your account."
+        description="Choose how you'd like to pay. These will be available at checkout once it's live."
       />
-      <div className="flex flex-col items-center gap-2 rounded-lg bg-card px-6 py-16 text-center">
-        <CreditCard
-          className="h-8 w-8 text-muted-foreground"
-          strokeWidth={1.25}
-        />
-        <p className="text-sm text-muted-foreground">
-          No payment methods saved yet.
-        </p>
-        <p className="max-w-xs text-xs text-muted-foreground">
-          You&apos;ll be able to add a payment method securely at checkout
-          once it&apos;s live.
-        </p>
+
+      <div className="flex flex-col gap-4">
+        {paymentMethods.map(({ key, label, icon: Icon, description }) => {
+          const isPreferred = preferred === key;
+          return (
+            <div
+              key={key}
+              className={`rounded-lg border p-5 transition-colors ${
+                isPreferred
+                  ? "border-foreground bg-card"
+                  : "border-border bg-surface"
+              }`}
+            >
+              <button
+                type="button"
+                onClick={() => setPreferred(key)}
+                className="flex w-full items-start gap-4 text-left"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-card">
+                  <Icon className="h-5 w-5" strokeWidth={1.5} />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm font-medium">{label}</p>
+                    {isPreferred && (
+                      <span className="flex items-center gap-1 rounded-full bg-foreground px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-background">
+                        <Check className="h-3 w-3" strokeWidth={2} />
+                        Preferred
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                    {description}
+                  </p>
+                </div>
+              </button>
+
+              {key === "upi" && (
+                <div className="mt-4 border-t border-border pt-4">
+                  {savedUpiId ? (
+                    <div className="flex items-center justify-between">
+                      <p className="text-sm">
+                        Saved UPI ID:{" "}
+                        <span className="font-medium">{savedUpiId}</span>
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setSavedUpiId(null)}
+                        className="text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="flex flex-wrap gap-3">
+                      <input
+                        value={upiId}
+                        onChange={(e) => setUpiId(e.target.value)}
+                        placeholder="yourname@upi"
+                        className="h-10 min-w-[200px] flex-1 rounded-lg border border-border bg-surface px-4 text-sm"
+                      />
+                      <Button
+                        size="sm"
+                        onClick={() => {
+                          if (!upiId.trim()) return;
+                          setSavedUpiId(upiId.trim());
+                          setUpiId("");
+                        }}
+                      >
+                        Save UPI ID
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
