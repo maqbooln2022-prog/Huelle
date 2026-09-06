@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSession, signIn, signOut } from "next-auth/react";
@@ -33,9 +33,9 @@ type Address = {
   name: string;
   line1: string;
   city: string;
-  state: string;
+  state: string | null;
   pincode: string;
-  phone: string;
+  phone: string | null;
 };
 
 export function AccountView() {
@@ -190,7 +190,9 @@ function SecurityPanel() {
 
 function AddressesPanel() {
   const [addresses, setAddresses] = useState<Address[]>([]);
+  const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [form, setForm] = useState({
     name: "",
     line1: "",
@@ -200,21 +202,50 @@ function AddressesPanel() {
     phone: "",
   });
 
-  const addAddress = () => {
+  useEffect(() => {
+    fetch("/api/account/addresses")
+      .then((res) => res.json())
+      .then((data) => setAddresses(Array.isArray(data) ? data : []))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const addAddress = async () => {
     if (!form.name || !form.line1 || !form.city || !form.pincode) return;
-    setAddresses((prev) => [...prev, { id: crypto.randomUUID(), ...form }]);
-    setForm({ name: "", line1: "", city: "", state: "", pincode: "", phone: "" });
-    setShowForm(false);
+    setSaving(true);
+    try {
+      const res = await fetch("/api/account/addresses", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        const created = await res.json();
+        setAddresses((prev) => [...prev, created]);
+        setForm({ name: "", line1: "", city: "", state: "", pincode: "", phone: "" });
+        setShowForm(false);
+      }
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const removeAddress = async (id: string) => {
+    setAddresses((prev) => prev.filter((a) => a.id !== id));
+    await fetch(`/api/account/addresses/${id}`, { method: "DELETE" });
   };
 
   return (
     <div>
       <PanelHeading
         title="Your Addresses"
-        description="Saved delivery addresses for faster checkout. Addresses are kept only for this browser session."
+        description="Saved delivery addresses for faster checkout."
       />
 
-      {addresses.length > 0 && (
+      {loading && (
+        <p className="text-sm text-muted-foreground">Loading addresses&hellip;</p>
+      )}
+
+      {!loading && addresses.length > 0 && (
         <ul className="mb-6 flex flex-col gap-3">
           {addresses.map((addr) => (
             <li
@@ -234,9 +265,7 @@ function AddressesPanel() {
               <button
                 type="button"
                 aria-label={`Remove address for ${addr.name}`}
-                onClick={() =>
-                  setAddresses((prev) => prev.filter((a) => a.id !== addr.id))
-                }
+                onClick={() => removeAddress(addr.id)}
                 className="shrink-0 rounded-full p-2 text-muted-foreground transition-colors hover:bg-background hover:text-foreground"
               >
                 <Trash2 className="h-4 w-4" strokeWidth={1.5} />
@@ -289,8 +318,8 @@ function AddressesPanel() {
             />
           </div>
           <div className="mt-2 flex gap-3">
-            <Button size="sm" onClick={addAddress}>
-              Save address
+            <Button size="sm" onClick={addAddress} disabled={saving}>
+              {saving ? "Saving…" : "Save address"}
             </Button>
             <Button size="sm" variant="ghost" onClick={() => setShowForm(false)}>
               Cancel
@@ -339,6 +368,41 @@ function PaymentsPanel() {
   const [preferred, setPreferred] = useState<PaymentKey>("upi");
   const [upiId, setUpiId] = useState("");
   const [savedUpiId, setSavedUpiId] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/account/payment-preference")
+      .then((res) => res.json())
+      .then((pref) => {
+        if (pref?.method) setPreferred(pref.method as PaymentKey);
+        if (pref?.upiId) setSavedUpiId(pref.upiId);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  const updatePreference = async (method: PaymentKey, nextUpiId?: string | null) => {
+    setPreferred(method);
+    await fetch("/api/account/payment-preference", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        method,
+        upiId: nextUpiId !== undefined ? nextUpiId : savedUpiId,
+      }),
+    });
+  };
+
+  if (loading) {
+    return (
+      <div>
+        <PanelHeading
+          title="Payment Options"
+          description="Choose how you'd like to pay. These will be available at checkout once it's live."
+        />
+        <p className="text-sm text-muted-foreground">Loading&hellip;</p>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -361,7 +425,7 @@ function PaymentsPanel() {
             >
               <button
                 type="button"
-                onClick={() => setPreferred(key)}
+                onClick={() => updatePreference(key)}
                 className="flex w-full items-start gap-4 text-left"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-card">
@@ -393,7 +457,10 @@ function PaymentsPanel() {
                       </p>
                       <button
                         type="button"
-                        onClick={() => setSavedUpiId(null)}
+                        onClick={() => {
+                          setSavedUpiId(null);
+                          updatePreference(preferred, null);
+                        }}
                         className="text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
                       >
                         Remove
@@ -411,8 +478,10 @@ function PaymentsPanel() {
                         size="sm"
                         onClick={() => {
                           if (!upiId.trim()) return;
-                          setSavedUpiId(upiId.trim());
+                          const trimmed = upiId.trim();
+                          setSavedUpiId(trimmed);
                           setUpiId("");
+                          updatePreference(preferred, trimmed);
                         }}
                       >
                         Save UPI ID
