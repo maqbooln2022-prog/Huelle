@@ -1,8 +1,25 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { User, LogOut } from "lucide-react";
+import Link from "next/link";
+import {
+  User,
+  LogOut,
+  Package,
+  ShieldCheck,
+  MapPin,
+  CreditCard,
+  Mail,
+} from "lucide-react";
 import { useSession, signIn, signOut } from "next-auth/react";
+
+const menuLinks = [
+  { label: "Your Orders", tab: "orders", icon: Package },
+  { label: "Login & Security", tab: "security", icon: ShieldCheck },
+  { label: "Your Addresses", tab: "addresses", icon: MapPin },
+  { label: "Payment Options", tab: "payments", icon: CreditCard },
+  { label: "Contact Us", tab: "contact", icon: Mail },
+];
 
 export function AccountMenu() {
   const { data: session, status } = useSession();
@@ -51,17 +68,34 @@ export function AccountMenu() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-48 rounded-lg border border-border bg-surface py-2 shadow-lg">
+        <div className="absolute right-0 top-full mt-2 w-56 rounded-lg border border-border bg-surface py-2 shadow-lg">
           <div className="px-4 py-2">
             <p className="truncate text-sm font-medium">{session.user?.name}</p>
             <p className="truncate text-xs text-muted-foreground">
               {session.user?.email}
             </p>
           </div>
+
+          <div className="my-1 border-t border-border" />
+
+          {menuLinks.map(({ label, tab, icon: Icon }) => (
+            <Link
+              key={tab}
+              href={`/account?tab=${tab}`}
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 px-4 py-2 text-sm text-foreground/80 transition-colors hover:bg-card hover:text-foreground"
+            >
+              <Icon className="h-4 w-4" strokeWidth={1.5} />
+              {label}
+            </Link>
+          ))}
+
+          <div className="my-1 border-t border-border" />
+
           <button
             type="button"
             onClick={() => signOut()}
-            className="flex w-full items-center gap-2 px-4 py-2 text-sm text-foreground/80 transition-colors hover:bg-card hover:text-foreground"
+            className="flex w-full items-center gap-3 px-4 py-2 text-sm text-foreground/80 transition-colors hover:bg-card hover:text-foreground"
           >
             <LogOut className="h-4 w-4" strokeWidth={1.5} />
             Sign out
