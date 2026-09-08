@@ -6,7 +6,6 @@ import {
   User,
   LogOut,
   Package,
-  ShieldCheck,
   MapPin,
   CreditCard,
   Mail,
@@ -15,7 +14,6 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 const menuLinks = [
   { label: "Your Orders", tab: "orders", icon: Package },
-  { label: "Login & Security", tab: "security", icon: ShieldCheck },
   { label: "Your Addresses", tab: "addresses", icon: MapPin },
   { label: "Payment Options", tab: "payments", icon: CreditCard },
   { label: "Contact Us", tab: "contact", icon: Mail },

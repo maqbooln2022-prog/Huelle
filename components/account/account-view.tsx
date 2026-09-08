@@ -3,10 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import {
   Package,
-  ShieldCheck,
   MapPin,
   CreditCard,
   Mail,
@@ -20,7 +19,6 @@ import { Button } from "@/components/ui/button";
 
 const tabs = [
   { key: "orders", label: "Your Orders", icon: Package },
-  { key: "security", label: "Login & Security", icon: ShieldCheck },
   { key: "addresses", label: "Your Addresses", icon: MapPin },
   { key: "payments", label: "Payment Options", icon: CreditCard },
   { key: "contact", label: "Contact Us", icon: Mail },
@@ -95,7 +93,6 @@ export function AccountView() {
 
         <div>
           {activeTab === "orders" && <OrdersPanel />}
-          {activeTab === "security" && <SecurityPanel />}
           {activeTab === "addresses" && <AddressesPanel />}
           {activeTab === "payments" && <PaymentsPanel />}
           {activeTab === "contact" && <ContactPanel />}
@@ -138,52 +135,6 @@ function OrdersPanel() {
           <Button size="sm">Start shopping</Button>
         </Link>
       </div>
-    </div>
-  );
-}
-
-function SecurityPanel() {
-  const { data: session } = useSession();
-
-  return (
-    <div>
-      <PanelHeading
-        title="Login & Security"
-        description="How you sign in to Hülle."
-      />
-      <div className="flex flex-col gap-4 rounded-lg bg-card p-6">
-        <div className="flex items-center justify-between border-b border-border pb-4">
-          <div>
-            <p className="text-sm font-medium">Name</p>
-            <p className="text-sm text-muted-foreground">
-              {session?.user?.name}
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center justify-between border-b border-border pb-4">
-          <div>
-            <p className="text-sm font-medium">Email</p>
-            <p className="text-sm text-muted-foreground">
-              {session?.user?.email}
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-sm font-medium">Sign-in method</p>
-            <p className="text-sm text-muted-foreground">
-              Google account &mdash; managed by Google, not Hülle.
-            </p>
-          </div>
-        </div>
-      </div>
-      <Button
-        variant="outline"
-        className="mt-6"
-        onClick={() => signOut()}
-      >
-        Sign out
-      </Button>
     </div>
   );
 }
